@@ -1,0 +1,2 @@
+This file is for checking new tool in git. Video no. 3 on playlist, so we are going to see actually tool similar to diff.
+suppose in hundred line of code, someone make changes like i am going to make here. Then it is hard to find out what exactly changes are made.So good luck here,
