@@ -27,3 +27,39 @@ int main() {
   }
   return 0;
 }
+
+/*
+#include <iostream>
+using namespace std;
+
+int main() {
+   
+    int cost_option_1;
+    cout << "Enter the cost of the first option: ";
+    cin >> cost_option_1;
+
+    int benefit_option_1;
+    cout << "Enter the benefit of the first option: ";
+    cin >> benefit_option_1;
+
+    int cost_option_2;
+    cout << "Enter the cost of the second option: ";
+    cin >> cost_option_2;
+
+    int benefit_option_2;
+    cout << "Enter the benefit of the second option: ";
+    cin >> benefit_option_2;
+
+    // Calculate the net benefit of each option
+    int net_benefit_option_1 = benefit_option_1 - cost_option_1;
+    int net_benefit_option_2 = benefit_option_2 - cost_option_2;
+
+    // Calculate the opportunity cost
+    int opportunity_cost = abs(net_benefit_option_1 - net_benefit_option_2);
+
+    cout << "The opportunity cost is: " << opportunity_cost << endl;
+
+    return 0;
+}
+
+*/
