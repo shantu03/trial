@@ -1,31 +1,31 @@
-#include <cmath>
+#include <algorithm>
 #include <iostream>
 #include <vector>
 using namespace std;
 
 int main() {
-  int n;
-  while (cin >> n) {
-    vector<double> x(n), y(n), z(n);
-    for (int i = 0; i < n; i++) cin >> x[i] >> y[i] >> z[i];
-    double max_dist = 0;
-    int central_point = 0;
-    for (int i = 0; i < n; i++) {
-      double min_dist = 1e18;
-      for (int j = 0; j < n; j++) {
-        if (i != j) {
-          double dist = sqrt(pow(x[i] - x[j], 2) + pow(y[i] - y[j], 2) + pow(z[i] - z[j], 2));
-          min_dist = min(min_dist, dist);
-        }
+  int N;
+  while (cin >> N) {
+    vector<int64_t> X(N), Y(N), Z(N);
+    for (int i = 0; i < N; i++) cin >> X[i] >> Y[i] >> Z[i];
+    vector<int64_t> ret(N);
+    for (int b = 1; b < 7; b++) {
+      int64_t mx = 0;
+      for (int i = 0; i < N; i++) {
+        int64_t cur = (b&1 ? X[i] : 0) + (b&2 ? Y[i] : 0) + (b&4 ? Z[i] : 0);
+        mx = max(mx, cur);
       }
-      if (min_dist > max_dist) {
-        max_dist = min_dist;
-        central_point = i;
+      for (int i = 0; i < N; i++) {
+        int64_t cur = (b&1 ? X[i] : 0) + (b&2 ? Y[i] : 0) + (b&4 ? Z[i] : 0);
+        ret[i] = max(ret[i], mx - cur);
       }
     }
-    cout << central_point + 1 << " " << x[central_point] << " " << y[central_point] << " " << z[central_point] << endl;
+    int64_t mn = 1e18, mni = 0;
+    for (int i = 0; i < N; i++) {
+      if (ret[i] < mn) { mn = ret[i]; mni = i; }
+    }
+    cout << mn << ' ' << mni+1 << endl;
   }
-  return 0;
 }
 
 /*
